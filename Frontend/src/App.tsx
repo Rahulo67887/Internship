@@ -1,4 +1,5 @@
 import './App.css'
+import Footer from './components/Footer'
 import Form from './components/Form'
 import Header from './components/Header'
 
@@ -10,6 +11,7 @@ function App() {
       <main className="app-main">
         <Form/>
       </main>
+      <Footer/>
     </div>
   )
 }
