@@ -27,7 +27,7 @@ async def root():
     return {"message" : "Emotion Reflection app is running!"}
     
     
-@app.post("/analyse")
+@app.post("/analyze")
 async def analyse_reflection(input_data: ReflectionInput):
     try :
         if not input_data.text or len(input_data.text.strip())==0 :

@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useEmotionStore } from "../store/EmotionStore";
 
 const Form: React.FC = ()=>{
+    const {analyzeEmotion}=useEmotionStore();
     const [inputText, setInputText]=useState("");
 
     const handleSubmit=async(e: React.FormEvent)=>{
@@ -11,10 +13,8 @@ const Form: React.FC = ()=>{
             return;
         }
         console.log(inputText);
-        // const analysedResult=await analyzeEmotion(inputText);
-        // if(analysedResult){
-        //     // setResult(analysedResult);
-        // }
+        const analysedResult=await analyzeEmotion(inputText);
+        console.log(analysedResult);
     }
 
     return (

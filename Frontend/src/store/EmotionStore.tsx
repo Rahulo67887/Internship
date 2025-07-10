@@ -1,5 +1,8 @@
 import { createContext, useContext, useState, type ReactNode} from "react";
 
+const API_BASE_URL = 'http://127.0.0.1:8000';
+
+
 interface EmotionResult{
     emotion : String;
     confidence : number;
@@ -9,6 +12,7 @@ interface EmotionResult{
 interface EmotionContextType{
     isLoading : boolean;
     error : string | null;
+    result : EmotionResult | null;
     analyzeEmotion : (text : string) => Promise<EmotionResult | null>;
 }
 
@@ -21,6 +25,7 @@ interface EmotionProviderProps{
 export const EmotionProvider : React.FC<EmotionProviderProps>=({ children})=>{
 
     const [isLoading, setIsLoading]=useState(false);
+    const [result, setResult]=useState<EmotionResult | null>(null);
     const [error, setError]=useState<string |null>(null);
 
     const analyzeEmotion = async (text : string) : Promise<EmotionResult | null> =>{
@@ -28,7 +33,8 @@ export const EmotionProvider : React.FC<EmotionProviderProps>=({ children})=>{
         setError(null);
 
         try{
-            const response=await fetch(`%{API_BASE_URL}/analyze`, {
+            console.log(text);
+            const response=await fetch(`${API_BASE_URL}/analyze`, {
                 method : "POST",
                 headers : {
                     "Content-Type" : "application/json",
@@ -42,6 +48,8 @@ export const EmotionProvider : React.FC<EmotionProviderProps>=({ children})=>{
             }
 
             const data : EmotionResult =await response.json();
+            console.log(data);
+            setResult(data);
             return data;
         }
         catch(err){
@@ -55,7 +63,7 @@ export const EmotionProvider : React.FC<EmotionProviderProps>=({ children})=>{
     }
 
     return(
-        <EmotionContext.Provider value={{isLoading, error, analyzeEmotion}}>
+        <EmotionContext.Provider value={{isLoading, error, analyzeEmotion, result}}>
             {children}
         </EmotionContext.Provider>
     )
@@ -63,6 +71,9 @@ export const EmotionProvider : React.FC<EmotionProviderProps>=({ children})=>{
 
 export const useEmotionStore=()=>{
     const emotionContext=useContext(EmotionContext);
+    if (!emotionContext) {
+    throw new Error("useEmotionStore must be used within an EmotionProvider");
+  }
     return emotionContext;
 }
 
