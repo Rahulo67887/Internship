@@ -2,20 +2,21 @@ import './App.css'
 import Footer from './components/Footer'
 import Form from './components/Form'
 import Header from './components/Header'
-import { EmotionProvider } from './store/EmotionStore'
+import LoadingSpinner from './components/LoadingSpinner'
+import { EmotionProvider, useEmotionStore } from './store/EmotionStore'
 
 function App() {
 
+  const {result, isLoading, error}=useEmotionStore();
   return (
-    <EmotionProvider>
       <div className='app'>
         <Header />
         <main className="app-main">
-          <Form/>
+          {!result && !isLoading && !error &&(<Form/>)}
+          {isLoading && <LoadingSpinner/>}
         </main>
         <Footer/>
       </div>
-    </EmotionProvider>
   )
 }
 
