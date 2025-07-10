@@ -1,14 +1,32 @@
+import { useState } from "react";
+
 const Form: React.FC = ()=>{
-    console.log("Form component rendered");
+    const [inputText, setInputText]=useState("");
+
+    const handleSubmit=async(e: React.FormEvent)=>{
+        e.preventDefault();
+
+        if(!inputText.trim()){
+            alert("Please enter some text to analyze");
+            return;
+        }
+        console.log(inputText);
+        // const analysedResult=await analyzeEmotion(inputText);
+        // if(analysedResult){
+        //     // setResult(analysedResult);
+        // }
+    }
 
     return (
-        <form className="reflection-form">
+        <form className="reflection-form" onSubmit={handleSubmit}>
             <div className="form-group">
                 <label htmlFor="reflection-text">
                     How are you feeling today?
                 </label>
                 <textarea 
                     id="reflection-text" 
+                    value={inputText}
+                    onChange={(e)=>setInputText(e.target.value)}
                     placeholder="I fell nervous today"
                     rows={4}
                     className="reflection-textarea">
