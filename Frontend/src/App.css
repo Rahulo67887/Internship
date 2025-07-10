@@ -1,0 +1,35 @@
+body{
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+
+/*main app */
+.app{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    margin: 0 auto;
+    padding:  0 16px;
+}
+
+/*Header style*/
+.app-header{
+    text-align: center;
+    padding: 24px 0;
+    /* color: white; */
+}
+
+.app-header h1{
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.app-header p{
+    font-size: 16px;
+    opacity: 0.9;
+    font-weight: 300;
+}
