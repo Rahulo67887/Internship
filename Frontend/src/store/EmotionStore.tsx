@@ -13,6 +13,7 @@ interface EmotionContextType{
     isLoading : boolean;
     error : string | null;
     result : EmotionResult | null;
+    setResult : React.Dispatch<React.SetStateAction<EmotionResult | null>> ;
     analyzeEmotion : (text : string) => Promise<EmotionResult | null>;
 }
 
@@ -63,7 +64,7 @@ export const EmotionProvider : React.FC<EmotionProviderProps>=({ children})=>{
     }
 
     return(
-        <EmotionContext.Provider value={{isLoading, error, analyzeEmotion, result}}>
+        <EmotionContext.Provider value={{isLoading, error, analyzeEmotion, result, setResult}}>
             {children}
         </EmotionContext.Provider>
     )
