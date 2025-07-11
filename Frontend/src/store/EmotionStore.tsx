@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, type ReactNode} from "react";
 
-const API_BASE_URL = 'http://127.0.0.1:8000';
+const API_BASE_URL = 'http://127.0.0.1:800';
 
 
 interface EmotionResult{
@@ -14,6 +14,7 @@ interface EmotionContextType{
     error : string | null;
     result : EmotionResult | null;
     setResult : React.Dispatch<React.SetStateAction<EmotionResult | null>> ;
+    setError : React.Dispatch<React.SetStateAction<string | null>> ;
     analyzeEmotion : (text : string) => Promise<EmotionResult | null>;
 }
 
@@ -64,7 +65,7 @@ export const EmotionProvider : React.FC<EmotionProviderProps>=({ children})=>{
     }
 
     return(
-        <EmotionContext.Provider value={{isLoading, error, analyzeEmotion, result, setResult}}>
+        <EmotionContext.Provider value={{isLoading, error, analyzeEmotion, result, setResult, setError}}>
             {children}
         </EmotionContext.Provider>
     )

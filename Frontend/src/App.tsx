@@ -1,4 +1,5 @@
 import './App.css'
+import ErrorMessage from './components/ErrorMessage'
 import Footer from './components/Footer'
 import Form from './components/Form'
 import Header from './components/Header'
@@ -16,6 +17,11 @@ function App() {
         <main className="app-main">
           {!result && !isLoading && !error && <Form/>}
           {isLoading && <LoadingSpinner/>}
+          {error && (
+            <ErrorMessage 
+              message={error} 
+            />
+          )}
           {result && <ResultCard/>}
         </main>
         <Footer/>
