@@ -41,6 +41,8 @@ venv\Scripts\activate
 
 # On macOS/Linux:
 source venv/bin/activate
+
+
 Install dependencies:
 bash
 Run the API server:
@@ -60,6 +62,8 @@ Start the development server:
 bash
 npm run dev
 The application will open at http://localhost:3000
+
+
 📱 Usage
 Enter your reflection: Type your thoughts or feelings in the text area
 Submit for analysis: Click "Analyze My Reflection"
