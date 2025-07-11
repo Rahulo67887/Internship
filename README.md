@@ -92,6 +92,8 @@ json
   ]
 }
 61
+
+
 🎨 Design Decisions
 Frontend
 Mobile-first approach: Designed for mobile devices first, then enhanced for desktop
