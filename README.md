@@ -114,9 +114,9 @@ All code is original and solely for demonstration purposes.
 👨‍💻 Author
 
 Name: Rahul Choudhary
-GitHub: https://github.com/your-username
-LinkedIn: https://linkedin.com/in/your-profile
-Email: your.email@example.com
+GitHub: [https://github.com/your-username](https://github.com/Rahulo67887)
+LinkedIn: www.linkedin.com/in/rahul-choudhary-6a2708210
+Email: rc7662837@gmail.com
 
 
 ---
