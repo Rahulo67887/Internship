@@ -103,10 +103,12 @@ The API will be available at http://127.0.0.1:8000/analyze
 - Add dark mode and customizable UI themes
 
 ##📝 License
+
 This project was created as part of an internship assignment.
 All code is original and solely for demonstration purposes.
 
 👨‍💻 Author
+
 Name: Rahul Choudhary
 GitHub: https://github.com/your-username
 LinkedIn: https://linkedin.com/in/your-profile
