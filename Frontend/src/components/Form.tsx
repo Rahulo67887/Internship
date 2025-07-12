@@ -1,18 +1,25 @@
 import { useState } from "react";
 import { useEmotionStore } from "../store/EmotionStore";
 
+// React functional component for the input form
 const Form: React.FC = ()=>{
+    // Accessing analyzeEmotion function from EmotionStore context
     const {analyzeEmotion}=useEmotionStore();
+
+     // Local state to manage user input text
     const [inputText, setInputText]=useState("");
 
+    // Function to handle form submission
     const handleSubmit=async(e: React.FormEvent)=>{
-        e.preventDefault();
+        e.preventDefault();// Prevent default form reload behavior
 
+        // Check if input is empty or only whitespace
         if(!inputText.trim()){
             alert("Please enter some text to analyze");
             return;
         }
-        console.log(inputText);
+        
+        // Call the emotion analysis function and log the result
         const analysedResult=await analyzeEmotion(inputText);
         console.log(analysedResult);
     }
